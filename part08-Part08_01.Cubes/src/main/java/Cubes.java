@@ -7,7 +7,7 @@ public class Cubes {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             String input = scanner.nextLine();
-            if(input.equals("end")){
+            if (input.equals("end")) {
                 break;
             }
             int num = Integer.valueOf(input);
