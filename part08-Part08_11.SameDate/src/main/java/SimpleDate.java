@@ -52,6 +52,14 @@ public class SimpleDate {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + this.year;
+        return hash;
+    }
+    
+
+    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
