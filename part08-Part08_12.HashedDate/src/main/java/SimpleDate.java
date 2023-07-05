@@ -53,10 +53,14 @@ public class SimpleDate {
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 53 * hash + this.year;
+        int hash = 7;
+        hash = 19 * hash + this.day;
+        hash = 19 * hash + this.month;
+        hash = 19 * hash + this.year;
         return hash;
     }
+
+    
 
     @Override
     public boolean equals(Object obj) {
