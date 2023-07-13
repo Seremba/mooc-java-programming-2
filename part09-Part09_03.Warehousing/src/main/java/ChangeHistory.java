@@ -43,12 +43,13 @@ public class ChangeHistory {
         }
         return max;
     }
-    public double minValue(){
+
+    public double minValue() {
         double min = 0.0;
         if (this.history.isEmpty()) {
             return 0.0;
         }
-        
+
         for (Double m : this.history) {
             if (min > m) {
                 min = m;
@@ -56,8 +57,8 @@ public class ChangeHistory {
         }
         return min;
     }
-    
-    public double average(){
+
+    public double average() {
         double sum = 0;
         for (Double m : this.history) {
             sum += m;
