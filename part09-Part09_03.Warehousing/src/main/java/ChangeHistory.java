@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -50,12 +51,7 @@ public class ChangeHistory {
             return 0.0;
         }
 
-        for (Double m : this.history) {
-            if (min > m) {
-                min = m;
-            }
-        }
-        return min;
+        return 1.0 * Collections.min(history);
     }
 
     public double average() {
