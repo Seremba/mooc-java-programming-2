@@ -10,30 +10,23 @@ import java.util.ArrayList;
  *
  * @author seremba
  */
-public class OneItemBox extends Box {
+public class MisplacingBox extends Box {
 
-    private int capacity;
     private ArrayList<Item> items;
 
-    public OneItemBox() {
-        this.capacity = 1;
+    public MisplacingBox() {
         this.items = new ArrayList<>();
     }
 
     @Override
     public void add(Item item) {
-         if(this.items.isEmpty()){
-             this.items.add(item);
-         }
+        if(this.items.isEmpty()){
+            this.items.add(item);
+        }
     }
 
     @Override
     public boolean isInBox(Item item) {
-         for(Item boxItem: this.items){
-             if(boxItem.getName().equals(item.getName())){
-                 return true;
-             }
-         }
          return false;
     }
 
