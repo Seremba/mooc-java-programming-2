@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author seremba
  */
-public class Box {
+public class Box implements Packable{
 
     private double capacity;
     private ArrayList<Packable> items;
