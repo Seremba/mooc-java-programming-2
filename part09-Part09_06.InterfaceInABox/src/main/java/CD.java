@@ -28,7 +28,6 @@ public class CD implements Packable {
     @Override
     public String toString() {
         return this.artist + ": "+ this.cdName +" (" + this.publicationYear + ")";
-                //Pink Floyd: Dark Side of the Moon (1973)
     }
 
     
