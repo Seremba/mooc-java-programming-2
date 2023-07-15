@@ -1,6 +1,7 @@
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,4 +33,27 @@ public class Warehouse {
         }
         return this.productsPrice.get(product);
     }
+    public int stock(String product){
+        if (!productsStock.containsKey(product)) {
+            return 0;
+        }
+        return this.productsStock.get(product);
+    }
+    public boolean take(String product) {
+        if(!this.productsStock.containsKey(product)){
+            return false;
+        }
+        int stock = this.productsStock.get(product);
+        if(this.productsStock.get(product) >= 1) {
+            int item = this.productsStock.get(product);
+            this.productsStock.put(product, item-1);
+            return true;
+        }
+        return false;
+    }
+    
+    public Set<String> products() {
+        return this.productsPrice.keySet();
+    }
+   
 }

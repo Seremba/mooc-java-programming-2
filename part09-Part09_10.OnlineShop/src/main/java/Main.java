@@ -3,13 +3,17 @@ public class Main {
 
     public static void main(String[] args) {
         // Test your app here
+
         Warehouse warehouse = new Warehouse();
         warehouse.addProduct("milk", 3, 10);
-        warehouse.addProduct("coffee", 5, 7);
+        warehouse.addProduct("coffee", 5, 6);
+        warehouse.addProduct("buttermilk", 2, 20);
+        warehouse.addProduct("yogurt", 2, 20);
 
-        System.out.println("prices:");
-        System.out.println("milk: " + warehouse.price("milk"));
-        System.out.println("coffee: " + warehouse.price("coffee"));
-        System.out.println("sugar: " + warehouse.price("sugar"));
+        System.out.println("products:");
+
+        for (String product : warehouse.products()) {
+            System.out.println(product);
+        }
     }
 }
