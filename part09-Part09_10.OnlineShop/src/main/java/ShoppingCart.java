@@ -30,4 +30,9 @@ public class ShoppingCart {
         }
         return price;
     }
+    public void print(){
+        for(Item item: this.items.values()){
+            System.out.println(item);
+        }
+    }
 }
