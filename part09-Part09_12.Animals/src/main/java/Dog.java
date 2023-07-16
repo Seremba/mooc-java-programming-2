@@ -8,16 +8,21 @@
  *
  * @author seremba
  */
-public class Dog extends Animal {
+public class Dog extends Animal{
 
-    public Dog(String animalName) {
-        super(animalName);
+    public Dog(String name) {
+        super(name);
     }
     public Dog(){
         this("Dog");
     }
     public void bark(){
-        System.out.println(this.getAnimalName() + " barks");
+        System.out.println(this.getName()+ " barks");
+    }
+
+    @Override
+    public void makeNoise() {
+         this.bark();
     }
 
 }
