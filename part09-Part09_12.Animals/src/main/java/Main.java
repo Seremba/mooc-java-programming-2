@@ -2,12 +2,12 @@
 public class Main {
 
     public static void main(String[] args) {
-        Dog dog = new Dog();
-        dog.bark();
-        dog.eat();
+        Cat cat = new Cat();
+        cat.purr();
+        cat.eat();
 
-        Dog fido = new Dog("Fido");
-        fido.bark();
+        Cat garfield = new Cat("Garfield");
+        garfield.purr();
 
     }
 
