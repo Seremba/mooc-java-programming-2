@@ -1,5 +1,7 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class MainProgram {
@@ -20,10 +22,14 @@ public class MainProgram {
         System.out.println(books.size() + " books in total.");
         System.out.println("Books: ");
         
+        Comparator<Book> comparator = Comparator.comparing(Book::getAge)
+                .thenComparing(Book::getName);
         
-        books.stream().sorted((book1,book2) -> {
-            return book1.getAge() - book2.getAge();
-        }).forEach(book -> System.out.println(book));
+        Collections.sort(books, comparator);
+         
+        for(Book book : books){
+            System.out.println(book);
+        }
     }
 
 }
