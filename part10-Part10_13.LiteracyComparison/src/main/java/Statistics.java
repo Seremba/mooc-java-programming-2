@@ -43,4 +43,3 @@ public class Statistics{
     }
     
 }
-//Niger (2015), female, 11.01572
