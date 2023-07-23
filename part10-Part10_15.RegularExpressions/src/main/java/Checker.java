@@ -10,5 +10,15 @@ public class Checker {
         return false;
     }
 
-   
+    public boolean allVowels(String string) {
+
+        String pattern = "^[aeiouAEIOU]+$";
+
+        if (string.matches(pattern)) {
+            return true;
+        }
+        return false;
+    }
+
+    
 }

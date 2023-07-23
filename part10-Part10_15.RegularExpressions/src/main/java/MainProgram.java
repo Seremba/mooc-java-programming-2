@@ -18,11 +18,11 @@ public class MainProgram {
             System.out.println("The form is incorrect.");
         }
 //
-//        if (check.allVowels(input)) {
-//            System.out.println("The form is correct.");
-//        } else {
-//            System.out.println("The form is incorrect.");
-//        }
+        if (check.allVowels(input)) {
+            System.out.println("The form is correct.");
+        } else {
+            System.out.println("The form is incorrect.");
+        }
 //
 //        if (check.timeOfDay(input)) {
 //            System.out.println("The form is correct.");
