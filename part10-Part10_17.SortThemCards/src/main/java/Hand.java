@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author seremba
  */
-public class Hand {
+public class Hand implements Comparable<Hand> {
 
     private List<Card> cards;
 
@@ -29,7 +29,22 @@ public class Hand {
             System.out.println(card);
         }
     }
-    public void sort(){
+
+    public void sort() {
         Collections.sort(cards);
+    }
+
+    public int sumOfValues() {
+        return this.cards.stream().mapToInt(val -> val.getValue()).sum();
+    }
+
+    public void sortBySuit() {
+//        Collections.sort(cards, new SortBySuit());
+        Collections.sort(cards, (c1, c2) -> c1.getSuit().ordinal() - c2.getSuit().ordinal());
+    }
+
+    @Override
+    public int compareTo(Hand hand) {
+        return this.sumOfValues() - hand.sumOfValues();
     }
 }
