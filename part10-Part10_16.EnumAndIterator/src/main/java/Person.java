@@ -28,7 +28,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return this.name + ", " + this.education.getLevel();
+        return this.name + ", " + this.education;
     }
 
 }
