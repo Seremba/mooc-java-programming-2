@@ -10,7 +10,7 @@ import java.util.Comparator;
  *
  * @author seremba
  */
-public class SortBySuit implements Comparator<Card> {
+public class BySuitInValueOrder implements Comparator<Card> {
 
     @Override
     public int compare(Card card1, Card card2) {
