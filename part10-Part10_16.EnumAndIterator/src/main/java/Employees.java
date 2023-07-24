@@ -29,10 +29,9 @@ public class Employees {
     }
     
     public void print() {
-        Iterator<Person> iterator = employess.iterator();
-        while (iterator.hasNext()) {
-            System.out.println(iterator.next());
-        }
+        this.employess.stream().forEach(employee -> {
+            System.out.println(employee);
+        });
     }
     
     public void print(Education education) {
