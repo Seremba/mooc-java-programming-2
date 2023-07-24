@@ -8,6 +8,20 @@
  *
  * @author seremba
  */
-public class Education {
-    
+public enum Education {
+    PHD("Doctoral degree"),
+    MA("Masters degree"),
+    BA("Bachelors degree"),
+    HS("High School diploma");
+
+    private String level;
+
+    private Education(String level) {
+        this.level = level;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
 }
