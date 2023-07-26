@@ -26,18 +26,27 @@ public class TemperatureSensor implements Sensor {
 
     @Override
     public void setOn() {
-        this.sensor = true;
+        if (!sensor) {
+            this.sensor = true;
+        }
+
     }
 
     @Override
     public void setOff() {
-        this.sensor = false;
+        if (sensor) {
+            this.sensor = false;
+        }
+
     }
 
     @Override
     public int read() {
-        this.sensor = true;
-        return new Random().nextInt(61-30);
+        if (sensor) {
+            return new Random().nextInt(61) - 30;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
 }
