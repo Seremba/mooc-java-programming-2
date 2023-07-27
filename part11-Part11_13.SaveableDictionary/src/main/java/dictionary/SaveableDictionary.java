@@ -37,4 +37,18 @@ public class SaveableDictionary {
         }
         return translation;
     }
+
+    public void delete(String word) {
+        if (this.translateToFinish.containsKey(word)) {
+            String translation = this.translateToFinish.get(word);
+            this.translateToFinish.remove(word);
+            this.translateFromFinish.remove(translation);
+        }
+
+        if (this.translateFromFinish.containsKey(word)) {
+            String translation = this.translateFromFinish.get(word);
+            this.translateFromFinish.remove(word);
+            this.translateToFinish.remove(translation);
+        }
+    }
 }
