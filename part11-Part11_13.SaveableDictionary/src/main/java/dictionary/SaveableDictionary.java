@@ -6,6 +6,7 @@
 package dictionary;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -69,6 +70,20 @@ public class SaveableDictionary {
                 this.toFinish.put(words[0], words[1]);
                 this.fromFinish.put(words[1], words[0]);
             }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean save() {
+        try {
+            PrintWriter writer = new PrintWriter(file);
+            for (String key : this.toFinish.keySet()) {
+                writer.append(key + ":" + this.toFinish.get(key));
+            }
+            writer.close();
+
             return true;
         } catch (Exception e) {
             return false;
