@@ -43,9 +43,12 @@ public class TemperatureSensor implements Sensor {
     @Override
     public int read() {
         if (sensor) {
-            return new Random().nextInt(61) - 30;
+            Random rand = new Random();
+            int temp = 30 - (-30) + 1;
+
+            return rand.nextInt(temp) + (-30);
         } else {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("error reaging temp sens");
         }
     }
 
