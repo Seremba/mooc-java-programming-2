@@ -24,27 +24,17 @@ public class Pipe<T> {
     }
 
     public T takeFromPipe() {
-        if (this.values.isEmpty()) {
-            return null;
+        T item = null;
+        if (!this.values.isEmpty()) {
+            item = this.values.get(0);
+            this.values.remove(0);           
         }
-        Iterator<T> iterator = values.iterator();
+        
+        return item;
 
-        T value = null;
-        while (iterator.hasNext()) {
-            value = iterator.next();
-            iterator.remove();
-        }
-        return value;
     }
 
     public boolean isInPipe() {
-
-        for (T value : this.values) {
-            if (this.values.contains(value)) {
-                return true;
-            }
-        }
-
-        return false;
+        return !this.values.isEmpty();
     }
 }
