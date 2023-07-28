@@ -36,4 +36,15 @@ public class Pipe<T> {
         }
         return value;
     }
+
+    public boolean isInPipe() {
+
+        for (T value : this.values) {
+            if (this.values.contains(value)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
