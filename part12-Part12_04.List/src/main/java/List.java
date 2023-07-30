@@ -34,13 +34,37 @@ public class List<T> {
         }
         this.values = newValues;
     }
-    
-    public boolean contains(T value){
-        for(int i = 0; i < this.firstFreeIndex; i++){
-            if(this.values[i].equals(value)){
+
+    public boolean contains(T value) {
+        for (int i = 0; i < this.firstFreeIndex; i++) {
+            if (this.values[i].equals(value)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public void remove(T value) {
+        int indexOfvalue = indexOfValue(value);
+        if (indexOfvalue < 0) {
+            return;
+        }
+        moveToTheLeft(indexOfvalue);
+        this.firstFreeIndex--;
+    }
+
+    private int indexOfValue(T value) {
+        for (int i = 0; i < this.firstFreeIndex; i++) {
+            if (this.values[i].equals(value)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private void moveToTheLeft(int fromIndex) {
+        for (int i = 0; i < this.firstFreeIndex - 1; i++) {
+            this.values[i] = this.values[i + 1];
+        }
     }
 }
