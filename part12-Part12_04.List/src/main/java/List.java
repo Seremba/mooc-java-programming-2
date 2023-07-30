@@ -11,19 +11,19 @@
 public class List<T> {
 
     private T[] values;
-    private int emptyIndex;
+    private int firstFreeIndex;
 
     public List() {
         this.values = (T[]) new Object[10];
-        this.emptyIndex = 0;
+        this.firstFreeIndex = 0;
     }
 
     public void add(T value) {
-        if (this.emptyIndex == this.values.length) {
+        if (this.firstFreeIndex == this.values.length) {
             grow();
         }
-        this.values[emptyIndex] = value;
-        this.emptyIndex++;
+        this.values[firstFreeIndex] = value;
+        this.firstFreeIndex++;
     }
 
     private void grow() {
@@ -33,5 +33,14 @@ public class List<T> {
             newValues[i] = this.values[i];
         }
         this.values = newValues;
+    }
+    
+    public boolean contains(T value){
+        for(int i = 0; i < this.firstFreeIndex; i++){
+            if(this.values[i].equals(value)){
+                return true;
+            }
+        }
+        return false;
     }
 }
