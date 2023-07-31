@@ -44,6 +44,9 @@ public class HashMap<K, V> {
         } else {
             valuesAtIndex.value(index).setValue(value);
         }
+        if (1.0 * this.firstFreeIndex / this.values.length > 0.75) {
+            grow();
+        }
     }
 
     private List<Pair<K, V>> getListBasedOnKey(K key) {
@@ -61,5 +64,32 @@ public class HashMap<K, V> {
             }
         }
         return -1;
+    }
+
+    private void grow() {
+        // crete a new array
+        List<Pair<K, V>>[] newValues = new List[this.values.length * 2];
+
+        for (int i = 0; i < this.values.length; i++) {
+            // copy the values of the old array into the new one
+            copy(newValues, i);
+
+        }
+
+        // replace the old array with the new one
+        this.values = newValues;
+    }
+
+    private void copy(List<Pair<K, V>>[] newArray, int fromIdx) {
+        for (int i = 0; i < this.values[fromIdx].size(); i++) {
+            Pair<K, V> value = this.values[fromIdx].value(i);
+
+            int hashValue = Math.abs(value.getKey().hashCode() % newArray.length);
+            if (newArray[hashValue] == null) {
+                newArray[hashValue] = new List<>();
+            }
+
+            newArray[hashValue].add(value);
+        }
     }
 }
