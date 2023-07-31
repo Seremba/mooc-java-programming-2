@@ -62,4 +62,8 @@ public class List<T> {
             this.values[i] = this.values[i + 1];
         }
     }
+
+    public int size() {
+        return this.firstFreeIndex;
+    }
 }
