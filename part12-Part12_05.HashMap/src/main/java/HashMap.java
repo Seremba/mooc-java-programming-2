@@ -33,4 +33,28 @@ public class HashMap<K, V> {
         }
         return null;
     }
+
+    public void add(K key, V value) {
+        int hashValue = Math.abs(key.hashCode() % this.values.length);
+        if (this.values[hashValue] == null) {
+            this.values[hashValue] = new List<>();
+        }
+
+        List<Pair<K, V>> valuesAtIndex = this.values[hashValue];
+
+        int index = -1;
+        for (int i = 0; i < valuesAtIndex.size(); i++) {
+            if (valuesAtIndex.value(i).getKey().equals(key)) {
+                index = i;
+                return;
+            }
+        }
+        
+        if(index < 0){
+            valuesAtIndex.add(new Pair<>(key, value));
+            this.firstFreeIndex++;
+        } else {
+           valuesAtIndex.value(index).setValue(value);
+        }
+    }
 }
