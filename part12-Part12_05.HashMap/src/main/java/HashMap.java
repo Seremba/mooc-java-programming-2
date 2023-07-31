@@ -35,26 +35,31 @@ public class HashMap<K, V> {
     }
 
     public void add(K key, V value) {
+        List<Pair<K, V>> valuesAtIndex = getListBasedOnKey(key);
+        int index = getIndexOfKey(valuesAtIndex, key);
+
+        if (index < 0) {
+            valuesAtIndex.add(new Pair<>(key, value));
+            this.firstFreeIndex++;
+        } else {
+            valuesAtIndex.value(index).setValue(value);
+        }
+    }
+
+    private List<Pair<K, V>> getListBasedOnKey(K key) {
         int hashValue = Math.abs(key.hashCode() % this.values.length);
         if (this.values[hashValue] == null) {
             this.values[hashValue] = new List<>();
         }
+        return values[hashValue];
+    }
 
-        List<Pair<K, V>> valuesAtIndex = this.values[hashValue];
-
-        int index = -1;
-        for (int i = 0; i < valuesAtIndex.size(); i++) {
-            if (valuesAtIndex.value(i).getKey().equals(key)) {
-                index = i;
-                return;
+    private int getIndexOfKey(List<Pair<K, V>> myList, K key) {
+        for (int i = 0; i < myList.size(); i++) {
+            if (myList.value(i).getKey().equals(key)) {
+                return i;
             }
         }
-        
-        if(index < 0){
-            valuesAtIndex.add(new Pair<>(key, value));
-            this.firstFreeIndex++;
-        } else {
-           valuesAtIndex.value(index).setValue(value);
-        }
+        return -1;
     }
 }
