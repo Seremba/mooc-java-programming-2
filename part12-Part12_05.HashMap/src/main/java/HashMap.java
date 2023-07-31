@@ -8,6 +8,14 @@
  *
  * @author seremba
  */
-public class HashMap {
-    
+public class HashMap<K, V> {
+
+    private List<Pair<K, V>>[] values;
+    private int firstFreeIndex;
+
+    public HashMap() {
+        this.firstFreeIndex = 0;
+        this.values = new List[32];
+    }
+
 }
