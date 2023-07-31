@@ -92,4 +92,20 @@ public class HashMap<K, V> {
             newArray[hashValue].add(value);
         }
     }
+
+    public V remove(K key) {
+        List<Pair<K, V>> valuesAtIndex = getListBasedOnKey(key);
+        if (valuesAtIndex.size() == 0) {
+            return null;
+        }
+
+        int index = getIndexOfKey(valuesAtIndex, key);
+        if (index < 0) {
+            return null;
+        }
+
+        Pair<K, V> pair = valuesAtIndex.value(index);
+        valuesAtIndex.remove(pair);
+        return pair.getValue();
+    }
 }
